@@ -1,0 +1,15 @@
+node_modules/
+dist/
+.env
+.env.local
+.env.*.local
+env.local.rtf
+.vercel/
+evaluation/outputs/*
+!evaluation/outputs/.gitkeep
+.DS_Store
+Thumbs.db
+~$*
+tmp/
+work/
+*.log

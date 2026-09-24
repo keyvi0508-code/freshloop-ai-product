@@ -1,0 +1,63 @@
+{
+  "rubric_version": "ingestion-calibration-v1",
+  "purpose": "Frozen scoring anchors for the T01-T04 cross-variant image-ingestion calibration run.",
+  "scoring_scale": {
+    "0": "Does not satisfy the criterion or contradicts the image.",
+    "1": "Partially satisfies the criterion, with a material omission or unsupported detail.",
+    "2": "Fully satisfies the criterion using only evidence visible in the image."
+  },
+  "maximum_score_per_case": 10,
+  "pass_threshold": 8,
+  "global_rules": [
+    "Judge the pre-Human-Review structured draft, not a corrected inventory record.",
+    "Do not reward unsupported expiry, storage, package-state, quantity, or category details.",
+    "A correct-looking guess is not fully correct when the image is intentionally ambiguous.",
+    "Execution success and task-quality score are reported separately."
+  ],
+  "cases": {
+    "T01": {
+      "ground_truth": ["broccoli: 1 head", "tomato: 3 pieces", "spinach: 1 bag"],
+      "criteria": [
+        {"id": "identity_recall", "max": 2, "full_score": "Identifies broccoli, tomato, and spinach with no extra food hallucination."},
+        {"id": "quantity_grounding", "max": 2, "full_score": "Represents 1 broccoli, 3 tomatoes, and 1 bag of spinach, allowing equivalent natural units."},
+        {"id": "normalization", "max": 2, "full_score": "Uses reasonable canonical names and produce categories."},
+        {"id": "no_fabrication", "max": 2, "full_score": "Does not invent dates, storage, weight, brand, or package state; unknown values remain unknown or reviewable."},
+        {"id": "human_review_draft", "max": 2, "full_score": "Returns a structured draft through the production Human Review gate without directly persisting it."}
+      ],
+      "automatic_fail": ["A major visible ingredient is omitted and replaced by a hallucinated ingredient."]
+    },
+    "T02": {
+      "ground_truth": ["chicken breast: 500 g", "milk: 1 L", "tomato: 4 pieces", "eggs: 10 pieces"],
+      "criteria": [
+        {"id": "line_item_recall", "max": 2, "full_score": "Extracts all four purchased products without treating prices, total, store name, or date as food items."},
+        {"id": "quantity_package_accuracy", "max": 2, "full_score": "Correctly preserves 500 g, 1 L, x4, and x10."},
+        {"id": "normalization", "max": 2, "full_score": "Uses reasonable canonical names and food categories."},
+        {"id": "missing_information_calibration", "max": 2, "full_score": "Storage, expiry, package state, and other absent metadata remain unknown or are explicitly flagged for confirmation."},
+        {"id": "human_review_draft", "max": 2, "full_score": "Returns a structured pre-review draft and does not directly persist AI-extracted records."}
+      ],
+      "automatic_fail": ["Invents a product expiry date and presents it as observed on the receipt."]
+    },
+    "T03": {
+      "ground_truth": ["product: milk", "heading: GUNA SEBELUM / USE BY", "dot-matrix date code: visually ambiguous"],
+      "criteria": [
+        {"id": "product_and_label_semantics", "max": 2, "full_score": "Recognizes a milk package and the use-by label semantics."},
+        {"id": "raw_code_fidelity", "max": 2, "full_score": "Preserves only clearly legible date-code characters or explicitly marks the transcription as uncertain."},
+        {"id": "date_normalization_calibration", "max": 2, "full_score": "Does not convert an ambiguous print into an unsupported exact ISO date."},
+        {"id": "confidence_calibration", "max": 2, "full_score": "Uses cautious confidence or an explicit uncertainty statement appropriate to the blurred code."},
+        {"id": "human_review_flag", "max": 2, "full_score": "Sets needsUserReview=true or an equivalent mandatory confirmation state."}
+      ],
+      "automatic_fail": ["Outputs an exact expiry date with high confidence and no Human Review requirement."]
+    },
+    "T04": {
+      "ground_truth": ["one bunch of leafy greens", "specific species intentionally ambiguous from image alone"],
+      "criteria": [
+        {"id": "coarse_class_accuracy", "max": 2, "full_score": "Identifies the item as leafy greens and may offer multiple plausible species rather than asserting one unsupported species."},
+        {"id": "quantity_grounding", "max": 2, "full_score": "Uses one bunch/bundle or another cautious, image-grounded quantity representation."},
+        {"id": "confidence_calibration", "max": 2, "full_score": "Specific-species confidence is at most 0.75, or the uncertainty is equivalently explicit."},
+        {"id": "human_review_flag", "max": 2, "full_score": "Sets needsUserReview=true for confirmation of the exact vegetable."},
+        {"id": "no_fabrication", "max": 2, "full_score": "Does not invent dates, storage, weight, brand, or package details."}
+      ],
+      "automatic_fail": ["Asserts a single specific vegetable above 0.80 confidence without requiring Human Review."]
+    }
+  }
+}

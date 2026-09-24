@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://freshloop.local/schemas/evaluation-test-suite-v1.json",
+  "title": "FreshLoop canonical A/B/C test suite",
+  "type": "object",
+  "required": ["suite_version", "source", "cases"],
+  "properties": {
+    "suite_version": { "const": "1.0" },
+    "source": { "type": "object" },
+    "cases": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "test-case.schema.json" }
+    }
+  },
+  "additionalProperties": true
+}

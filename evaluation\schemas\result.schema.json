@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://freshloop.local/schemas/variant-c-result-v1.json",
+  "title": "FreshLoop Variant C evaluation result",
+  "type": "object",
+  "required": [
+    "schema_version", "evaluation_version", "variant", "case_id", "run_id", "timestamp",
+    "case_type", "status", "model", "prompt_version", "seeded_profile", "seeded_inventory",
+    "freshness_result", "priority_result", "validator", "regeneration_count",
+    "all_generation_attempts", "final_user_visible_output", "execution_time_ms"
+  ],
+  "properties": {
+    "schema_version": { "const": "1.0" },
+    "variant": { "const": "C" },
+    "formal_result": { "type": "boolean" },
+    "fixture_status": { "enum": ["example", "placeholder", "formal"] },
+    "case_id": { "type": "string" },
+    "run_id": { "type": "string" },
+    "timestamp": { "type": "string", "format": "date-time" },
+    "case_type": { "enum": ["meal_planning", "inventory_ingestion", "end_to_end"] },
+    "status": { "enum": ["SUCCESS", "SYSTEM_ERROR", "MODEL_ERROR", "VALIDATION_FAILURE"] },
+    "model": { "type": "object" },
+    "prompt_version": { "type": "string" },
+    "seeded_profile": { "type": ["object", "null"] },
+    "seeded_inventory": { "type": "array" },
+    "user_request": { "type": ["string", "null"] },
+    "ingredient_knowledge_retrieval": { "type": "array" },
+    "freshness_result": { "type": "array" },
+    "priority_result": { "type": "array" },
+    "retrieved_knowledge": { "type": "object" },
+    "final_recipe_prompt": { "type": ["array", "null"] },
+    "ingredient_prompt": { "type": ["array", "null"] },
+    "raw_model_output": { "type": ["string", "null"] },
+    "validator": {
+      "type": "object",
+      "required": ["pass", "errors"],
+      "properties": {
+        "pass": { "type": "boolean" },
+        "errors": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "regeneration_count": { "type": "integer", "minimum": 0 },
+    "all_generation_attempts": { "type": "array" },
+    "final_user_visible_output": {},
+    "execution_time_ms": { "type": "integer", "minimum": 0 },
+    "system_model_errors": { "type": "array" },
+    "error": { "type": ["object", "null"] }
+  },
+  "additionalProperties": true
+}

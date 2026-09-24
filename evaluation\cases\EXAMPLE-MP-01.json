@@ -1,0 +1,99 @@
+{
+  "$schema": "../schemas/test-case.schema.json",
+  "schema_version": "1.0",
+  "fixture_status": "example",
+  "case_id": "EXAMPLE-MP-01",
+  "case_type": "meal_planning",
+  "title": "Use-soon spinach with beginner spicy dinner request",
+  "current_date": "2026-09-01",
+  "user_profile": {
+    "user_id": "synthetic_eval_mp_01",
+    "interface_language": "zh-CN",
+    "display_name": "测试用户一",
+    "taste_preferences": ["微辣", "鲜香"],
+    "cuisine_preferences": ["中式家常"],
+    "taste_notes": "步骤要适合新手。",
+    "taste_profile_summary": "偏好微辣、鲜香、步骤明确的家常菜。",
+    "dislikes": ["香菜"],
+    "allergies": ["花生"],
+    "dietary_constraints": [],
+    "default_servings": 2,
+    "default_prep_time_minutes": 30,
+    "fridge_temperature_c": 4,
+    "freezer_temperature_c": -18
+  },
+  "inventory": [
+    {
+      "id": "mp01-spinach",
+      "name": "菠菜",
+      "canonical_name": "spinach",
+      "quantity": 200,
+      "unit": "克",
+      "storage_location": "fridge",
+      "purchase_date": "2026-09-01"
+    },
+    {
+      "id": "mp01-chicken",
+      "name": "鸡胸肉",
+      "canonical_name": "chicken breast",
+      "quantity": 400,
+      "unit": "克",
+      "storage_location": "freezer",
+      "expiry_date": "2026-09-12"
+    },
+    {
+      "id": "mp01-eggs",
+      "name": "鸡蛋",
+      "canonical_name": "egg",
+      "quantity": 6,
+      "unit": "个",
+      "storage_location": "fridge",
+      "expiry_date": "2026-09-18"
+    },
+    {
+      "id": "mp01-rice",
+      "name": "大米",
+      "canonical_name": "rice",
+      "management_mode": "approximate_stock",
+      "stock_percentage": 70,
+      "unit": "克",
+      "storage_location": "room_temperature",
+      "package_state": "opened",
+      "expiry_date": "2027-01-15"
+    },
+    {
+      "id": "mp01-soy",
+      "name": "酱油",
+      "canonical_name": "soy sauce",
+      "management_mode": "approximate_stock",
+      "stock_percentage": 60,
+      "unit": "毫升",
+      "storage_location": "fridge",
+      "package_state": "opened",
+      "expiry_date": "2026-11-01"
+    },
+    {
+      "id": "mp01-oil",
+      "name": "食用油",
+      "canonical_name": "cooking oil",
+      "management_mode": "approximate_stock",
+      "stock_percentage": 50,
+      "unit": "毫升",
+      "storage_location": "room_temperature",
+      "package_state": "opened",
+      "expiry_date": "2026-12-20"
+    }
+  ],
+  "user_request": "想吃真正微辣、30分钟内完成的晚餐，优先用快到期的食材，步骤要适合新手。",
+  "planner_input": {
+    "servings": 2,
+    "prep_time_minutes": 30,
+    "carb_inventory_id": "mp01-rice"
+  },
+  "conversation_history": [],
+  "expected_behavior": {
+    "must_not_include": ["花生", "香菜"],
+    "notes": "For evaluator scoring only; never passed to Variant C."
+  },
+  "evaluation_dimensions": ["freshness_utilization", "retrieval_grounding", "hard_constraint_safety", "recipe_quality"]
+}

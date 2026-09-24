@@ -1,0 +1,127 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://freshloop.local/schemas/evaluation-test-case-v1.json",
+  "title": "FreshLoop canonical A/B/C test case",
+  "type": "object",
+  "required": ["schema_version", "case_id", "case_type", "current_date", "user_profile", "inventory"],
+  "properties": {
+    "schema_version": { "const": "1.0" },
+    "fixture_status": { "enum": ["example", "placeholder", "formal"] },
+    "case_id": { "type": "string", "pattern": "^[A-Za-z0-9_-]+$" },
+    "case_type": { "enum": ["meal_planning", "inventory_ingestion", "end_to_end"] },
+    "title": { "type": "string" },
+    "current_date": { "type": "string", "format": "date" },
+    "user_profile": {
+      "type": "object",
+      "required": ["user_id", "interface_language", "allergies", "dislikes", "dietary_constraints"],
+      "properties": {
+        "user_id": { "type": "string" },
+        "interface_language": { "enum": ["zh-CN", "en"] },
+        "display_name": { "type": "string" },
+        "preferences": { "type": "array", "items": { "type": "string" } },
+        "taste_preferences": { "type": "array", "items": { "type": "string" } },
+        "cuisine_preferences": { "type": "array", "items": { "type": "string" } },
+        "taste_notes": { "type": "string" },
+        "taste_profile_summary": { "type": "string" },
+        "allergies": { "type": "array", "items": { "type": "string" } },
+        "dislikes": { "type": "array", "items": { "type": "string" } },
+        "dietary_constraints": { "type": "array", "items": { "type": "string" } },
+        "default_servings": { "type": "integer", "minimum": 1 },
+        "default_prep_time_minutes": { "type": "integer", "minimum": 1 },
+        "fridge_temperature_c": { "type": "number" },
+        "freezer_temperature_c": { "type": "number" }
+      },
+      "additionalProperties": true
+    },
+    "inventory": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "storage_location"],
+        "properties": {
+          "id": { "type": "string" },
+          "name": { "type": "string" },
+          "canonical_name": { "type": "string" },
+          "category": { "type": "string" },
+          "ui_category": { "enum": ["protein", "produce", "staple", "condiment", "other"] },
+          "management_mode": { "enum": ["tracked_quantity", "freshness_only", "approximate_stock"] },
+          "quantity": { "type": ["number", "null"] },
+          "unit": { "type": "string" },
+          "stock_percentage": { "type": ["number", "null"], "minimum": 0, "maximum": 100 },
+          "storage_location": { "enum": ["fridge", "freezer", "room_temperature", "冷藏", "冷冻", "常温"] },
+          "package_state": { "enum": ["opened", "sealed", "unknown"] },
+          "purchase_date": { "type": ["string", "null"], "format": "date" },
+          "production_date": { "type": ["string", "null"], "format": "date" },
+          "expiry_date": { "type": ["string", "null"], "format": "date" },
+          "image_asset": { "type": ["string", "null"] }
+        },
+        "additionalProperties": true
+      }
+    },
+    "user_request": { "type": "string" },
+    "planner_input": {
+      "type": "object",
+      "properties": {
+        "servings": { "type": "integer", "minimum": 1 },
+        "prep_time_minutes": { "type": "integer", "minimum": 1 },
+        "carb_inventory_id": { "type": "string" },
+        "selected_inventory_ids": { "type": "array", "items": { "type": "string" } },
+        "follow_up": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "conversation_history": { "type": "array", "items": { "type": "object" } },
+    "capture_type": { "enum": ["photo", "receipt", "package", "manual"] },
+    "manual_input": {
+      "description": "Raw user-entered inventory text. Preserved to expose whether the production system supports this intake mode.",
+      "type": "string"
+    },
+    "asset": {
+      "type": "object",
+      "required": ["path"],
+      "properties": {
+        "path": { "type": "string" },
+        "mime_type": { "type": "string", "pattern": "^image/" },
+        "synthetic_or_demo_asset": { "type": "boolean" }
+      },
+      "additionalProperties": true
+    },
+    "human_review_corrections": { "type": "array", "items": { "type": "object" } },
+    "expected_behavior": {
+      "description": "Ground truth for later scoring only. Variant C never passes this object to production services.",
+      "type": "object"
+    },
+    "evaluation_dimensions": { "type": "array", "items": { "type": "string" } }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "case_type": { "const": "meal_planning" } } },
+      "then": { "required": ["user_request", "planner_input"] }
+    },
+    {
+      "if": {
+        "properties": {
+          "case_type": { "enum": ["inventory_ingestion", "end_to_end"] },
+          "capture_type": { "enum": ["photo", "receipt", "package"] }
+        },
+        "required": ["capture_type"]
+      },
+      "then": { "required": ["asset"] }
+    },
+    {
+      "if": {
+        "properties": {
+          "case_type": { "enum": ["inventory_ingestion", "end_to_end"] },
+          "capture_type": { "const": "manual" }
+        },
+        "required": ["capture_type"]
+      },
+      "then": { "required": ["manual_input"] }
+    },
+    {
+      "if": { "properties": { "case_type": { "const": "end_to_end" } } },
+      "then": { "required": ["user_request", "planner_input", "human_review_corrections"] }
+    }
+  ],
+  "additionalProperties": true
+}

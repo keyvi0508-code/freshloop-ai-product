@@ -1,0 +1,33 @@
+{
+  "evaluation_version": "variant-c-harness-v1.0",
+  "output_directory": "evaluation/outputs",
+  "max_generation_attempts": 3,
+  "models": {
+    "recipe": {
+      "provider": "DeepSeek",
+      "model": "deepseek-v4-flash",
+      "temperature": 0.72,
+      "max_output_tokens": 4000,
+      "thinking": {
+        "type": "disabled"
+      },
+      "response_format": {
+        "type": "json_object"
+      },
+      "stream": false
+    },
+    "ingredient": {
+      "provider": "DeepSeek",
+      "model": "deepseek-v4-flash-vision-exp",
+      "temperature": 0.45,
+      "max_output_tokens": 6500,
+      "thinking": {
+        "type": "disabled"
+      },
+      "response_format": {
+        "type": "json_object"
+      },
+      "stream": false
+    }
+  }
+}

@@ -1,0 +1,615 @@
+{
+  "evidence_type": "derived_manifest",
+  "source_batch": "20260904T025840Z",
+  "source_file": "private supplied results.json (not republished because it contains full prompts and raw model responses)",
+  "source_sha256": "df66900a6c9e452f07431e4e8a554071d7f859d06f2fdaa51bfbc5a71d3f6d01",
+  "derivation": "Selected fields copied without rescoring from the supplied batch results.json.",
+  "metadata": {
+    "evaluation_version": "variant-c-harness-v1.0",
+    "variant": "C",
+    "batch_id": "20260904T025840Z",
+    "created_at": "2026-09-04T03:02:45.308Z",
+    "cases": [
+      "T01",
+      "T02",
+      "T03",
+      "T04",
+      "T05",
+      "T06",
+      "T07",
+      "T08",
+      "T09",
+      "T10",
+      "T11",
+      "T12",
+      "T13",
+      "T14",
+      "T15",
+      "T16",
+      "T17",
+      "T18",
+      "T19",
+      "T20"
+    ],
+    "runs_per_case": 1,
+    "result_count": 20,
+    "success_count": 20,
+    "model_config": {
+      "recipe": {
+        "provider": "DeepSeek",
+        "model": "deepseek-v4-flash",
+        "temperature": 0.72,
+        "maxOutputTokens": 4000,
+        "structuredOutput": {
+          "thinking": {
+            "type": "disabled"
+          },
+          "responseFormat": {
+            "type": "json_object"
+          },
+          "stream": false
+        },
+        "timeoutMs": 55000
+      },
+      "ingredient": {
+        "provider": "DeepSeek",
+        "model": "deepseek-v4-flash-vision-exp",
+        "temperature": 0.45,
+        "maxOutputTokens": 6500,
+        "structuredOutput": {
+          "thinking": {
+            "type": "disabled"
+          },
+          "responseFormat": {
+            "type": "json_object"
+          },
+          "stream": false
+        },
+        "timeoutMs": 55000
+      }
+    },
+    "formal_ai": true
+  },
+  "cases": [
+    {
+      "case_id": "T01",
+      "case_type": "inventory_ingestion",
+      "status": "SUCCESS",
+      "model": {
+        "provider": "DeepSeek",
+        "model": "deepseek-v4-flash-vision-exp",
+        "temperature": 0.45,
+        "maxOutputTokens": 6500,
+        "structuredOutput": {
+          "thinking": {
+            "type": "disabled"
+          },
+          "responseFormat": {
+            "type": "json_object"
+          },
+          "stream": false
+        },
+        "timeoutMs": 55000
+      },
+      "prompt_version": "capture-v8-uncertain-date-evidence",
+      "validator_pass": true,
+      "regeneration_count": 0,
+      "execution_time_ms": 5215,
+      "timestamp": "2026-09-04T02:58:40.830Z",
+      "expected_behavior_was_not_passed_to_pipeline": true
+    },
+    {
+      "case_id": "T02",
+      "case_type": "inventory_ingestion",
+      "status": "SUCCESS",
+      "model": {
+        "provider": "DeepSeek",
+        "model": "deepseek-v4-flash-vision-exp",
+        "temperature": 0.45,
+        "maxOutputTokens": 6500,
+        "structuredOutput": {
+          "thinking": {
+            "type": "disabled"
+          },
+          "responseFormat": {
+            "type": "json_object"
+          },
+          "stream": false
+        },
+        "timeoutMs": 55000
+      },
+      "prompt_version": "capture-v8-uncertain-date-evidence",
+      "validator_pass": true,
+      "regeneration_count": 0,
+      "execution_time_ms": 7055,
+      "timestamp": "2026-09-04T02:58:46.048Z",
+      "expected_behavior_was_not_passed_to_pipeline": true
+    },
+    {
+      "case_id": "T03",
+      "case_type": "inventory_ingestion",
+      "status": "SUCCESS",
+      "model": {
+        "provider": "DeepSeek",
+        "model": "deepseek-v4-flash-vision-exp",
+        "temperature": 0.45,
+        "maxOutputTokens": 6500,
+        "structuredOutput": {
+          "thinking": {
+            "type": "disabled"
+          },
+          "responseFormat": {
+            "type": "json_object"
+          },
+          "stream": false
+        },
+        "timeoutMs": 55000
+      },
+      "prompt_version": "capture-v8-uncertain-date-evidence",
+      "validator_pass": true,
+      "regeneration_count": 0,
+      "execution_time_ms": 3176,
+      "timestamp": "2026-09-04T02:58:53.105Z",
+      "expected_behavior_was_not_passed_to_pipeline": true
+    },
+    {
+      "case_id": "T04",
+      "case_type": "inventory_ingestion",
+      "status": "SUCCESS",
+      "model": {
+        "provider": "DeepSeek",
+        "model": "deepseek-v4-flash-vision-exp",
+        "temperature": 0.45,
+        "maxOutputTokens": 6500,
+        "structuredOutput": {
+          "thinking": {
+            "type": "disabled"
+          },
+          "responseFormat": {
+            "type": "json_object"
+          },
+          "stream": false
+        },
+        "timeoutMs": 55000
+      },
+      "prompt_version": "capture-v8-uncertain-date-evidence",
+      "validator_pass": true,
+      "regeneration_count": 0,
+      "execution_time_ms": 3100,
+      "timestamp": "2026-09-04T02:58:56.283Z",
+      "expected_behavior_was_not_passed_to_pipeline": true
+    },
+    {
+      "case_id": "T05",
+      "case_type": "inventory_ingestion",
+      "status": "SUCCESS",
+      "model": {
+        "provider": "DeepSeek",
+        "model": "deepseek-v4-flash-vision-exp",
+        "temperature": 0.45,
+        "maxOutputTokens": 6500,
+        "structuredOutput": {
+          "thinking": {
+            "type": "disabled"
+          },
+          "responseFormat": {
+            "type": "json_object"
+          },
+          "stream": false
+        },
+        "timeoutMs": 55000
+      },
+      "prompt_version": "capture-v8-uncertain-date-evidence",
+      "validator_pass": true,
+      "regeneration_count": 0,
+      "execution_time_ms": 2265,
+      "timestamp": "2026-09-04T02:58:59.385Z",
+      "expected_behavior_was_not_passed_to_pipeline": true
+    },
+    {
+      "case_id": "T06",
+      "case_type": "meal_planning",
+      "status": "SUCCESS",
+      "model": {
+        "provider": "DeepSeek",
+        "model": "deepseek-v4-flash",
+        "temperature": 0.72,
+        "maxOutputTokens": 4000,
+        "structuredOutput": {
+          "thinking": {
+            "type": "disabled"
+          },
+          "responseFormat": {
+            "type": "json_object"
+          },
+          "stream": false
+        },
+        "timeoutMs": 55000
+      },
+      "prompt_version": "recipe-v8-resilient-hard-constraints",
+      "validator_pass": true,
+      "regeneration_count": 0,
+      "execution_time_ms": 15213,
+      "timestamp": "2026-09-04T02:59:01.651Z",
+      "expected_behavior_was_not_passed_to_pipeline": true
+    },
+    {
+      "case_id": "T07",
+      "case_type": "meal_planning",
+      "status": "SUCCESS",
+      "model": {
+        "provider": "DeepSeek",
+        "model": "deepseek-v4-flash",
+        "temperature": 0.72,
+        "maxOutputTokens": 4000,
+        "structuredOutput": {
+          "thinking": {
+            "type": "disabled"
+          },
+          "responseFormat": {
+            "type": "json_object"
+          },
+          "stream": false
+        },
+        "timeoutMs": 55000
+      },
+      "prompt_version": "recipe-v8-resilient-hard-constraints",
+      "validator_pass": true,
+      "regeneration_count": 0,
+      "execution_time_ms": 10851,
+      "timestamp": "2026-09-04T02:59:16.867Z",
+      "expected_behavior_was_not_passed_to_pipeline": true
+    },
+    {
+      "case_id": "T08",
+      "case_type": "meal_planning",
+      "status": "SUCCESS",
+      "model": {
+        "provider": "DeepSeek",
+        "model": "deepseek-v4-flash",
+        "temperature": 0.72,
+        "maxOutputTokens": 4000,
+        "structuredOutput": {
+          "thinking": {
+            "type": "disabled"
+          },
+          "responseFormat": {
+            "type": "json_object"
+          },
+          "stream": false
+        },
+        "timeoutMs": 55000
+      },
+      "prompt_version": "recipe-v8-resilient-hard-constraints",
+      "validator_pass": true,
+      "regeneration_count": 0,
+      "execution_time_ms": 10541,
+      "timestamp": "2026-09-04T02:59:27.721Z",
+      "expected_behavior_was_not_passed_to_pipeline": true
+    },
+    {
+      "case_id": "T09",
+      "case_type": "meal_planning",
+      "status": "SUCCESS",
+      "model": {
+        "provider": "DeepSeek",
+        "model": "deepseek-v4-flash",
+        "temperature": 0.72,
+        "maxOutputTokens": 4000,
+        "structuredOutput": {
+          "thinking": {
+            "type": "disabled"
+          },
+          "responseFormat": {
+            "type": "json_object"
+          },
+          "stream": false
+        },
+        "timeoutMs": 55000
+      },
+      "prompt_version": "recipe-v8-resilient-hard-constraints",
+      "validator_pass": true,
+      "regeneration_count": 0,
+      "execution_time_ms": 11364,
+      "timestamp": "2026-09-04T02:59:38.264Z",
+      "expected_behavior_was_not_passed_to_pipeline": true
+    },
+    {
+      "case_id": "T10",
+      "case_type": "meal_planning",
+      "status": "SUCCESS",
+      "model": {
+        "provider": "DeepSeek",
+        "model": "deepseek-v4-flash",
+        "temperature": 0.72,
+        "maxOutputTokens": 4000,
+        "structuredOutput": {
+          "thinking": {
+            "type": "disabled"
+          },
+          "responseFormat": {
+            "type": "json_object"
+          },
+          "stream": false
+        },
+        "timeoutMs": 55000
+      },
+      "prompt_version": "recipe-v8-resilient-hard-constraints",
+      "validator_pass": true,
+      "regeneration_count": 1,
+      "execution_time_ms": 23039,
+      "timestamp": "2026-09-04T02:59:49.632Z",
+      "expected_behavior_was_not_passed_to_pipeline": true
+    },
+    {
+      "case_id": "T11",
+      "case_type": "meal_planning",
+      "status": "SUCCESS",
+      "model": {
+        "provider": "DeepSeek",
+        "model": "deepseek-v4-flash",
+        "temperature": 0.72,
+        "maxOutputTokens": 4000,
+        "structuredOutput": {
+          "thinking": {
+            "type": "disabled"
+          },
+          "responseFormat": {
+            "type": "json_object"
+          },
+          "stream": false
+        },
+        "timeoutMs": 55000
+      },
+      "prompt_version": "recipe-v8-resilient-hard-constraints",
+      "validator_pass": true,
+      "regeneration_count": 1,
+      "execution_time_ms": 27438,
+      "timestamp": "2026-09-04T03:00:12.674Z",
+      "expected_behavior_was_not_passed_to_pipeline": true
+    },
+    {
+      "case_id": "T12",
+      "case_type": "meal_planning",
+      "status": "SUCCESS",
+      "model": {
+        "provider": "DeepSeek",
+        "model": "deepseek-v4-flash",
+        "temperature": 0.72,
+        "maxOutputTokens": 4000,
+        "structuredOutput": {
+          "thinking": {
+            "type": "disabled"
+          },
+          "responseFormat": {
+            "type": "json_object"
+          },
+          "stream": false
+        },
+        "timeoutMs": 55000
+      },
+      "prompt_version": "recipe-v8-resilient-hard-constraints",
+      "validator_pass": true,
+      "regeneration_count": 0,
+      "execution_time_ms": 11660,
+      "timestamp": "2026-09-04T03:00:40.116Z",
+      "expected_behavior_was_not_passed_to_pipeline": true
+    },
+    {
+      "case_id": "T13",
+      "case_type": "meal_planning",
+      "status": "SUCCESS",
+      "model": {
+        "provider": "DeepSeek",
+        "model": "deepseek-v4-flash",
+        "temperature": 0.72,
+        "maxOutputTokens": 4000,
+        "structuredOutput": {
+          "thinking": {
+            "type": "disabled"
+          },
+          "responseFormat": {
+            "type": "json_object"
+          },
+          "stream": false
+        },
+        "timeoutMs": 55000
+      },
+      "prompt_version": "recipe-v8-resilient-hard-constraints",
+      "validator_pass": true,
+      "regeneration_count": 0,
+      "execution_time_ms": 11887,
+      "timestamp": "2026-09-04T03:00:51.778Z",
+      "expected_behavior_was_not_passed_to_pipeline": true
+    },
+    {
+      "case_id": "T14",
+      "case_type": "meal_planning",
+      "status": "SUCCESS",
+      "model": {
+        "provider": "DeepSeek",
+        "model": "deepseek-v4-flash",
+        "temperature": 0.72,
+        "maxOutputTokens": 4000,
+        "structuredOutput": {
+          "thinking": {
+            "type": "disabled"
+          },
+          "responseFormat": {
+            "type": "json_object"
+          },
+          "stream": false
+        },
+        "timeoutMs": 55000
+      },
+      "prompt_version": "recipe-v8-resilient-hard-constraints",
+      "validator_pass": true,
+      "regeneration_count": 0,
+      "execution_time_ms": 11263,
+      "timestamp": "2026-09-04T03:01:03.667Z",
+      "expected_behavior_was_not_passed_to_pipeline": true
+    },
+    {
+      "case_id": "T15",
+      "case_type": "meal_planning",
+      "status": "SUCCESS",
+      "model": {
+        "provider": "DeepSeek",
+        "model": "deepseek-v4-flash",
+        "temperature": 0.72,
+        "maxOutputTokens": 4000,
+        "structuredOutput": {
+          "thinking": {
+            "type": "disabled"
+          },
+          "responseFormat": {
+            "type": "json_object"
+          },
+          "stream": false
+        },
+        "timeoutMs": 55000
+      },
+      "prompt_version": "recipe-v8-resilient-hard-constraints",
+      "validator_pass": true,
+      "regeneration_count": 0,
+      "execution_time_ms": 14203,
+      "timestamp": "2026-09-04T03:01:14.934Z",
+      "expected_behavior_was_not_passed_to_pipeline": true
+    },
+    {
+      "case_id": "T16",
+      "case_type": "meal_planning",
+      "status": "SUCCESS",
+      "model": {
+        "provider": "DeepSeek",
+        "model": "deepseek-v4-flash",
+        "temperature": 0.72,
+        "maxOutputTokens": 4000,
+        "structuredOutput": {
+          "thinking": {
+            "type": "disabled"
+          },
+          "responseFormat": {
+            "type": "json_object"
+          },
+          "stream": false
+        },
+        "timeoutMs": 55000
+      },
+      "prompt_version": "recipe-v8-resilient-hard-constraints",
+      "validator_pass": true,
+      "regeneration_count": 0,
+      "execution_time_ms": 14552,
+      "timestamp": "2026-09-04T03:01:29.140Z",
+      "expected_behavior_was_not_passed_to_pipeline": true
+    },
+    {
+      "case_id": "T17",
+      "case_type": "meal_planning",
+      "status": "SUCCESS",
+      "model": {
+        "provider": "DeepSeek",
+        "model": "deepseek-v4-flash",
+        "temperature": 0.72,
+        "maxOutputTokens": 4000,
+        "structuredOutput": {
+          "thinking": {
+            "type": "disabled"
+          },
+          "responseFormat": {
+            "type": "json_object"
+          },
+          "stream": false
+        },
+        "timeoutMs": 55000
+      },
+      "prompt_version": "recipe-v8-resilient-hard-constraints",
+      "validator_pass": true,
+      "regeneration_count": 0,
+      "execution_time_ms": 11571,
+      "timestamp": "2026-09-04T03:01:43.695Z",
+      "expected_behavior_was_not_passed_to_pipeline": true
+    },
+    {
+      "case_id": "T18",
+      "case_type": "meal_planning",
+      "status": "SUCCESS",
+      "model": {
+        "provider": "DeepSeek",
+        "model": "deepseek-v4-flash",
+        "temperature": 0.72,
+        "maxOutputTokens": 4000,
+        "structuredOutput": {
+          "thinking": {
+            "type": "disabled"
+          },
+          "responseFormat": {
+            "type": "json_object"
+          },
+          "stream": false
+        },
+        "timeoutMs": 55000
+      },
+      "prompt_version": "recipe-v8-resilient-hard-constraints",
+      "validator_pass": true,
+      "regeneration_count": 1,
+      "execution_time_ms": 27285,
+      "timestamp": "2026-09-04T03:01:55.269Z",
+      "expected_behavior_was_not_passed_to_pipeline": true
+    },
+    {
+      "case_id": "T19",
+      "case_type": "meal_planning",
+      "status": "SUCCESS",
+      "model": {
+        "provider": "DeepSeek",
+        "model": "deepseek-v4-flash",
+        "temperature": 0.72,
+        "maxOutputTokens": 4000,
+        "structuredOutput": {
+          "thinking": {
+            "type": "disabled"
+          },
+          "responseFormat": {
+            "type": "json_object"
+          },
+          "stream": false
+        },
+        "timeoutMs": 55000
+      },
+      "prompt_version": "recipe-v8-resilient-hard-constraints",
+      "validator_pass": true,
+      "regeneration_count": 0,
+      "execution_time_ms": 10074,
+      "timestamp": "2026-09-04T03:02:22.558Z",
+      "expected_behavior_was_not_passed_to_pipeline": true
+    },
+    {
+      "case_id": "T20",
+      "case_type": "meal_planning",
+      "status": "SUCCESS",
+      "model": {
+        "provider": "DeepSeek",
+        "model": "deepseek-v4-flash",
+        "temperature": 0.72,
+        "maxOutputTokens": 4000,
+        "structuredOutput": {
+          "thinking": {
+            "type": "disabled"
+          },
+          "responseFormat": {
+            "type": "json_object"
+          },
+          "stream": false
+        },
+        "timeoutMs": 55000
+      },
+      "prompt_version": "recipe-v8-resilient-hard-constraints",
+      "validator_pass": true,
+      "regeneration_count": 0,
+      "execution_time_ms": 12669,
+      "timestamp": "2026-09-04T03:02:32.636Z",
+      "expected_behavior_was_not_passed_to_pipeline": true
+    }
+  ]
+}
